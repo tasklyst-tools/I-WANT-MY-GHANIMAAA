@@ -316,30 +316,28 @@ header, main, footer {
 }
 
 .hero-panel {
-    margin: 3rem auto 0;
+    margin: 2.5rem auto 0;
     width: min(calc(100% - 3rem), var(--max-width));
-    min-height: 640px;
     border-radius: 36px;
     background: rgba(0, 0, 0, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 45px 75px rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    padding: 3rem;
+    padding: 2rem;
 }
 
 .category-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    height: 100%;
+    gap: 1.5rem;
 }
 
 .category-card {
     background: rgba(0, 0, 0, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 36px;
-    padding: 2.5rem;
+    padding: 2rem;
     box-shadow: 0 45px 75px rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -365,7 +363,7 @@ header, main, footer {
 .category-card h3 {
     color: #f8f8f8;
     font-size: 1.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .category-card p {
@@ -622,7 +620,6 @@ header, main, footer {
 
 @media (max-width: 1024px) {
     .hero-panel {
-        min-height: 520px;
         width: min(calc(100% - 3rem), var(--max-width));
         border-radius: 30px;
         padding: 2.5rem;
@@ -640,7 +637,6 @@ header, main, footer {
 
 @media (max-width: 820px) {
     .hero-panel {
-        min-height: 420px;
         width: min(calc(100% - 3rem), var(--max-width));
         border-radius: 26px;
         padding: 2rem;
@@ -659,7 +655,6 @@ header, main, footer {
 
 @media (max-width: 600px) {
     .hero-panel {
-        min-height: 320px;
         margin-top: 2.5rem;
         width: min(calc(100% - 3rem), var(--max-width));
         border-radius: 22px;
@@ -729,7 +724,6 @@ header, main, footer {
     }
 
     .hero-panel {
-        min-height: 320px;
         margin-top: 2rem;
         width: min(calc(100% - 3rem), var(--max-width));
         border-radius: 24px;
