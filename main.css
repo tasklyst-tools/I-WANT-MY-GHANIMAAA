@@ -167,6 +167,7 @@ header, main, footer {
     gap: 1.5rem;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
     z-index: 900;
+    transition: none; /* No transition by default, controlled by classes */
 }
 
 .glass-nav .logo {
@@ -174,6 +175,69 @@ header, main, footer {
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.glass-nav .logo:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Phase 1: Fade out navbar elements */
+.glass-nav.fading .nav-links,
+.glass-nav.fading .color-slider,
+.glass-nav.fading .nav-cta {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Reverse: Fade in navbar elements */
+.glass-nav.fading-in .nav-links,
+.glass-nav.fading-in .color-slider,
+.glass-nav.fading-in .nav-cta {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s ease-in;
+}
+
+/* Phase 2: Collapse from right to left - logo stays fixed */
+.glass-nav.collapsing {
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 0.85rem 1.75rem !important; /* Maintain height */
+    /* left and transform are set directly, not transitioned during collapse */
+}
+
+.glass-nav.collapsing[style*="left"] {
+    transition: left 0s, transform 0s, width 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Reverse: Expand navbar width */
+.glass-nav.expanding {
+    transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 0.85rem 1.75rem !important; /* Maintain height */
+}
+
+.glass-nav.collapsing .nav-links,
+.glass-nav.collapsing .color-slider,
+.glass-nav.collapsing .nav-cta {
+    display: none !important;
+}
+
+/* Phase 3: Move logo to center */
+.glass-nav.collapsed {
+    width: auto !important;
+    padding: 0.85rem 1.75rem !important; /* Maintain height */
+    grid-template-columns: auto !important;
+    justify-content: flex-start;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-nav.collapsed .nav-links,
+.glass-nav.collapsed .color-slider,
+.glass-nav.collapsed .nav-cta {
+    display: none !important;
 }
 
 .glass-nav .nav-links {
@@ -183,6 +247,7 @@ header, main, footer {
     margin: 0;
     padding: 0;
     justify-content: center;
+    transition: opacity 0.5s ease-out;
 }
 
 .glass-nav .nav-links a {
@@ -226,7 +291,7 @@ header, main, footer {
     font-weight: 600;
     letter-spacing: 0.03em;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.5s ease-out;
 }
 
 .glass-nav .nav-cta:hover {
@@ -241,6 +306,7 @@ header, main, footer {
     gap: 0.75rem;
     color: #eaeaea;
     font-size: 0.85rem;
+    transition: opacity 0.5s ease-out;
 }
 
 .color-slider label {
